@@ -106,7 +106,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar
       {...props}
-      className="light:bg-[color:var(--geist-background)] dark:bg-[color:var(--geist-background)] dark:border-[color:var(--geist-foreground)] dark:border-opacity-10 dark:text-[color:var(--geist-foreground)] dark:divide-[color:var(--geist-foreground)] dark:divide-opacity-10 dark:shadow-lg"
+      className="light:bg-[color:var(--geist-background) mt-2"
+      style={{
+        height: "100%",
+        borderRadius: "10px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+      }}
     >
       <SidebarHeader
         style={{
