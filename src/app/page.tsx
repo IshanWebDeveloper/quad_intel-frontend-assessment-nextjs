@@ -1,5 +1,5 @@
-import { DataTable } from "@/components/datatable";
-import { columns, Payment } from "./payments/columns";
+import { DataTable } from "@/components/data-table/datatable";
+import { producerFilmColumns, Product } from "../components/data-table/columns";
 import { Button } from "@/components/ui/button";
 import {
   ArrowDown10,
@@ -14,18 +14,11 @@ import { Separator } from "@/components/ui/separator";
 import AllBrandsComboDropDown from "@/components/all-brands-combo";
 import { DeskComboDropDown } from "@/components/desk-combo";
 import TagsComboDropDown from "@/components/tags-combo";
+import { productsData } from "@/lib/data";
 
-async function getData(): Promise<Payment[]> {
+async function getData(): Promise<Product[]> {
   // Fetch data from your API here.
-  return [
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-    // ...
-  ];
+  return productsData;
 }
 
 export default async function Home() {
@@ -68,7 +61,7 @@ export default async function Home() {
             </Button>
           </div>
         </div>
-        <DataTable columns={columns} data={data} />
+        <DataTable columns={producerFilmColumns} data={data} />
       </main>
     </div>
   );
