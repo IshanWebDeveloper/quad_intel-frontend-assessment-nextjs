@@ -1,4 +1,5 @@
 import { Product } from "@/components/data-table/columns";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 
 export const productsData: Product[] = [
@@ -20,11 +21,25 @@ export const productsData: Product[] = [
       ),
       messages: 2,
     },
-    description: "A phone",
-    members: ["John Doe", "Jane Doe"],
-    categories: ["Electronics", "Phones"],
-    tags: ["New", "Popular"],
-    nextMeeting: "2022-01-01",
+    description: "Develop a personalized fit...",
+    members: (
+      <div className="flex items-center -space-x-2">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <Avatar key={i} className="w-6 h-6 -ml-3">
+            <AvatarImage
+              src={`https://avatar.iran.liara.run/public/girl`}
+              width={10}
+              height={10}
+            />
+            <AvatarFallback>JD</AvatarFallback>
+          </Avatar>
+        ))}
+      </div>
+    ),
+
+    categories: ["Automation", "E-commerce"],
+    tags: ["#DigitalTransformation", "#Popular", "#Popular"],
+    nextMeeting: "in 30 minutes",
   },
   // ...
 ];

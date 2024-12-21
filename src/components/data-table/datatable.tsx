@@ -59,6 +59,7 @@ export function DataTable<TData, TValue>({
       rowSelection,
       pagination: pagination.current,
     },
+    columnResizeMode: "onChange",
   });
 
   // useEffect(() => {
@@ -78,7 +79,10 @@ export function DataTable<TData, TValue>({
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id} className="text-nowrap ">
+                  <TableHead
+                    key={header.id}
+                    className="text-nowrap border border-x-2 "
+                  >
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -100,7 +104,10 @@ export function DataTable<TData, TValue>({
               >
                 {row.getVisibleCells().map((cell) => {
                   return (
-                    <TableCell className="dark:text-white " key={cell.id}>
+                    <TableCell
+                      className="dark:text-white border border-x-2 "
+                      key={cell.id}
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
