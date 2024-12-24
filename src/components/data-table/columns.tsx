@@ -8,6 +8,7 @@ import { Button } from "../ui/button";
 import CategoryItem from "./category-item";
 import NextMeeting, { Meeting } from "../next-meeting";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Badge } from "../ui/badge";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -91,13 +92,17 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
         <div className="flex flex-row items-center justify-between ">
           <div className="flex flex-row items-center gap-2">
             {original?.brandName?.logo}
-            <div className="font-semibold">{original?.brandName?.name}</div>
+            <div className="font-semibold  text-black dark:text-white">
+              {original?.brandName?.name}
+            </div>
           </div>
 
           {original?.brandName?.messageCount && (
             <div className="flex items-center gap-1">
-              <MessagesSquare className="w-3 h-3" />
-              <div className="text-xs">{original.brandName.messageCount}</div>
+              <MessagesSquare className="w-3 h-3 text-black dark:text-white" />
+              <div className="text-xs text-black dark:text-white">
+                {original.brandName.messageCount}
+              </div>
             </div>
           )}
         </div>
@@ -117,7 +122,9 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
           </div>
         );
       }
-      return <div>{original.description}</div>;
+      return (
+        <p className=" dark:text-white text-black">{original.description}</p>
+      );
     },
   },
   {
@@ -191,12 +198,13 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
       return (
         <div className="flex w-[200px] flex-row gap-1 overflow-x-hidden  ">
           {original?.tags?.map((tag, index) => (
-            <div
+            <Badge
               key={index}
-              className="rounded-sm px-1 border border-1 bg-gray-500  text-gray-800 font-semibold"
+              variant="outline"
+              className="bg-gray-100 text-gray-600 font-normal"
             >
               {tag}
-            </div>
+            </Badge>
           ))}
         </div>
       );

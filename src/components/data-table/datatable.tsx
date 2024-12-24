@@ -42,7 +42,7 @@ export function DataTable<TData, TValue>({
 
   const pagination = useRef<PaginationState>({
     pageIndex: 0,
-    pageSize: 10,
+    pageSize: 11,
   });
   const table = useReactTable({
     data,
@@ -82,7 +82,7 @@ export function DataTable<TData, TValue>({
   }, [rowSelection, setSelectedRowCount]);
 
   return (
-    <div className="rounded-md border">
+    <div className="rounded-md border h-full">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

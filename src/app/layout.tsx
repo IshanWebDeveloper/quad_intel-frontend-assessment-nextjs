@@ -28,17 +28,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground h-fit `}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
           <SidebarProvider open={true}>
             <AppSidebar variant="inset" />
-            <main className="w-full h-[98vh] mx-2 border mt-2  rounded-lg">
+            <main className="w-full h-[750px] mx-2 border mt-2  rounded-lg">
               {/* <SidebarTrigger /> */}
               {children}
             </main>

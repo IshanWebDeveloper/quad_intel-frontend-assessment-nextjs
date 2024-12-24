@@ -10,10 +10,10 @@ const RowItemSelectOption = () => {
     return null;
   }
   return (
-    <div className=" flex flex-col w-fit px-2 h-fit mt-auto border rounded-lg  self-center  items-center justify-center py-4 bg-opacity-90 mb-2 ">
+    <div className=" flex flex-col w-fit px-2 mt-10 h-fit border rounded-lg  self-center  items-center justify-center py-4 bg-opacity-90 mb-2 ">
       <div className="rounded-lg  flex flex-row">
         <div className="flex flex-row gap-2 items-center">
-          <div className=" rounded-sm w-5 h-5 bg-white text-base dark:text-black text-center flex items-center justify-center">
+          <div className=" rounded-sm w-5 h-5 bg-black dark:bg-white text-base text-white dark:text-black text-center flex items-center justify-center">
             {selectedRowCount}
           </div>
           <p>Selected</p>
