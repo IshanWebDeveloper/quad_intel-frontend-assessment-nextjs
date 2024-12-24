@@ -38,7 +38,7 @@ export default function RootLayout({
         >
           <SidebarProvider open={true}>
             <AppSidebar variant="inset" />
-            <main className="w-full mx-2 border mt-2  rounded-lg">
+            <main className="w-full h-[98vh] mx-2 border mt-2  rounded-lg">
               {/* <SidebarTrigger /> */}
               {children}
             </main>

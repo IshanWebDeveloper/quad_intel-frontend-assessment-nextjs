@@ -15,6 +15,7 @@ import AllBrandsComboDropDown from "@/components/all-brands-combo";
 import { DeskComboDropDown } from "@/components/desk-combo";
 import TagsComboDropDown from "@/components/tags-combo";
 import { productsData } from "@/lib/data";
+import RowItemSelectOption from "@/components/row-item-select-options";
 
 async function getData(): Promise<Product[]> {
   // Fetch data from your API here.
@@ -23,9 +24,10 @@ async function getData(): Promise<Product[]> {
 
 export default async function Home() {
   const data = await getData();
+
   return (
-    <div className=" font-[family-name:var(--font-geist-sans)] text-[color:var(--geist-foreground)] bg-[color:var(--geist-background)] ">
-      <main className="w-full ">
+    <div className=" font-[family-name:var(--font-geist-sans)] text-[color:var(--geist-foreground)] bg-[color:var(--geist-background)] w-full h-[98vh]  flex flex-col ">
+      <div className="w-full  ">
         <div className="px-4 py-4 flex flex-row w-full items-center justify-between">
           <h1 className="text-lg font-medium">Products</h1>
           <div className="flex gap-2 items-center">
@@ -62,7 +64,8 @@ export default async function Home() {
           </div>
         </div>
         <DataTable columns={producerFilmColumns} data={data} />
-      </main>
+      </div>
+      <RowItemSelectOption />
     </div>
   );
 }

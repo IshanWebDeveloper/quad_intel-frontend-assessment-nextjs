@@ -15,7 +15,7 @@ export type Product = {
   brandName: {
     name: string;
     logo: React.ReactNode;
-    messages: number;
+    messageCount?: number;
   };
   description: string;
   members: React.ReactNode;
@@ -28,32 +28,38 @@ export type Product = {
 export const producerFilmColumns: ColumnDef<Product>[] = [
   {
     id: "select",
+    maxSize: 50,
     header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
+      <div className="flex flex-row items-center justify-center">
+        <Checkbox
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && "indeterminate")
+          }
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
+        />
+      </div>
     ),
     cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
+      <div className=" flex flex-row items-center justify-center">
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        />
+      </div>
     ),
     enableSorting: false,
     enableHiding: false,
   },
   {
     accessorKey: "brandName",
-    header: ({ column }) => {
-      console.log(column);
+    enableResizing: false,
+    size: 200,
+    header: () => {
       return (
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-row justify-between items-center ">
           <div className="">Brands</div>
           <Button variant="ghost" size="icon">
             <Plus />
@@ -62,16 +68,18 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
       );
     },
     cell: ({ row: { original } }) => (
-      <div className="flex flex-row items-center justify-between">
+      <div className="flex flex-row items-center justify-between ">
         <div className="flex flex-row items-center gap-2">
           {original.brandName.logo}
           <div className="font-semibold">{original.brandName.name}</div>
         </div>
 
-        <div className="flex items-center gap-1">
-          <MessagesSquare className="w-3 h-3" />
-          <div className="text-xs">{original.brandName.messages}</div>
-        </div>
+        {original.brandName.messageCount && (
+          <div className="flex items-center gap-1">
+            <MessagesSquare className="w-3 h-3" />
+            <div className="text-xs">{original.brandName.messageCount}</div>
+          </div>
+        )}
       </div>
     ),
   },
@@ -82,11 +90,7 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
   {
     accessorKey: "members",
     header: "Members",
-    cell: ({ row: { original } }) => (
-      <div className="flex w-full flex-row justify-right  -space-x-2  ">
-        {original.members}
-      </div>
-    ),
+    cell: ({ row: { original } }) => original.members,
   },
   {
     accessorKey: "categories",
@@ -129,6 +133,7 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
   },
   {
     accessorKey: "plus",
+    maxSize: 25,
     header: () => (
       <div className="flex flex-row">
         <Button variant="ghost" size="icon">

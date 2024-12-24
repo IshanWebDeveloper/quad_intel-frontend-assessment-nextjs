@@ -22,7 +22,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import useStore from "@/store";
+
 // import { Button } from "./ui/button";
 
 interface DataTableProps<TData, TValue> {
@@ -40,17 +42,18 @@ export function DataTable<TData, TValue>({
 
   const pagination = useRef<PaginationState>({
     pageIndex: 0,
-    pageSize: 2,
+    pageSize: 10,
   });
   const table = useReactTable({
     data,
     columns,
+
     getCoreRowModel: getCoreRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     onRowSelectionChange: setRowSelection,
-    enableMultiRowSelection: false,
+    enableMultiRowSelection: true,
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     state: {
@@ -59,17 +62,17 @@ export function DataTable<TData, TValue>({
       rowSelection,
       pagination: pagination.current,
     },
-    columnResizeMode: "onChange",
+    enableColumnResizing: true,
+    columnResizeMode: "onEnd",
   });
 
-  // useEffect(() => {
-  //   if (Object.keys(rowSelection).length > 0) {
-  //     console.log(Object.keys(rowSelection));
-  //     setShowSelectionOptions(true);
-  //   } else {
-  //     setShowSelectionOptions(false);
-  //   }
-  // }, [rowSelection, table]);
+  const setSelectedRowCount = useStore((state) => state.setRowCount);
+
+  useEffect(() => {
+    if (rowSelection) {
+      setSelectedRowCount(Object.keys(rowSelection).length);
+    }
+  }, [rowSelection, setSelectedRowCount]);
 
   return (
     <div className="rounded-md border">
@@ -81,7 +84,7 @@ export function DataTable<TData, TValue>({
                 return (
                   <TableHead
                     key={header.id}
-                    className="text-nowrap border border-x-2 "
+                    className={`text-nowrap border border-x-2  w-[${header.getSize()}px] pl-2 `}
                   >
                     {header.isPlaceholder
                       ? null
