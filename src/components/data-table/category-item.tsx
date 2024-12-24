@@ -1,26 +1,26 @@
 const categoryColours: {
   [key: string]: { bg: string; text: string };
 } = {
-  Automation: { bg: "#3e2849", text: "#ad8ada" },
-  "E-commerce": { bg: "#3d2f22", text: "#b38b6e" },
-  Mobile: { bg: "#3d2f22", text: "#b38b6e" },
+  Automation: { bg: "#f6e6ff", text: "#3e2868" },
+  "E-commerce": { bg: "#fff8e5", text: "#5e4c36" },
+  Mobile: { bg: "#f2edab", text: "#857d4f" },
   B2B: {
-    bg: "#3b2b22",
-    text: "#b38b6e",
+    bg: "#fff3cb",
+    text: "#6b6123",
   },
-  SAAS: { bg: "#222f22", text: "#469071" },
-  Marketplace: { bg: "#222f22", text: "#469071" },
-  B2C: { bg: "#222f22", text: "#b38b6e" },
-  Technology: { bg: "#27304a", text: "#7da2d4" },
-  Finance: {
-    bg: "#3d2b22",
-    text: "#bcaa60",
+  SAAS: { bg: "#e1feea", text: "#263c30" },
+  Marketplace: { bg: "#e1feea", text: "#263c30" },
+  B2C: {
+    bg: "#fff3cb",
+    text: "#6b6123",
   },
+  Technology: { bg: "#f1faff", text: "#354c6b" },
+  Finance: { bg: "#e1feea", text: "#263c30" },
   Publishing: {
-    bg: "#5d3b53",
-    text: "#dd9bdc",
+    bg: "#faedf9",
+    text: "#612e4d",
   },
-  "Web Services": { bg: "#223845", text: "#4997a5" },
+  "Web Services": { bg: "#d7f8ff", text: "#1a4f57" },
 };
 
 interface CategoryItemProps {
