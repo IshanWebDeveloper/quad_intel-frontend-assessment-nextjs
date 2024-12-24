@@ -23,7 +23,7 @@ export const productsData: Product[] = [
     description: "Develop a personalized fit...",
     members: Math.floor(Math.random() * 10) + 1,
 
-    categories: ["Automation", "E-commerce"],
+    categories: ["Automation"],
     tags: ["#DigitalTransformation", "#Popular", "#Popular"],
     nextMeeting: "in 30 minutes",
   },
@@ -47,9 +47,9 @@ export const productsData: Product[] = [
     description: "Introduce a cloud-based p.. ",
     members: Math.floor(Math.random() * 10) + 1,
 
-    categories: ["Automation", "E-commerce"],
-    tags: ["#DigitalTransformation", "#Popular", "#Popular"],
-    nextMeeting: "in 30 minutes",
+    categories: ["B2B", "E-commerce"],
+    tags: ["#OnlineShopping", "#DigitalTransformation"],
+    nextMeeting: "Tomorrow",
   },
   {
     id: "3",
@@ -59,21 +59,21 @@ export const productsData: Product[] = [
         <div className="rounded-sm w-5 h-5 bg-white flex flex-col items-center justify-center">
           <Image
             src="/brands/mailchimp-icon.svg"
-            alt="wix"
+            alt="mailchimp"
             width={20}
             height={20}
             className="object-cover"
-            content="Wix"
+            content="Mailchimp"
           />
         </div>
       ),
     },
-    description: "Introduce a cloud-based p.. ",
+    description: "Develop a mobile app aim... ",
     members: Math.floor(Math.random() * 10) + 1,
 
-    categories: ["Automation", "E-commerce"],
-    tags: ["#DigitalTransformation", "#Popular", "#Popular"],
-    nextMeeting: "in 30 minutes",
+    categories: ["SAAS", "Mobile"],
+    tags: ["#TechInnovation", "#CloudComputing"],
+    nextMeeting: "Tomorrow",
   },
   {
     id: "4",
@@ -93,12 +93,12 @@ export const productsData: Product[] = [
       ),
       messageCount: 7,
     },
-    description: "Introduce a cloud-based p.. ",
+    description: "This program could includ.. ",
     members: Math.floor(Math.random() * 10) + 1,
 
-    categories: ["Automation", "E-commerce"],
-    tags: ["#DigitalTransformation", "#Popular", "#Popular"],
-    nextMeeting: "in 30 minutes",
+    categories: ["Marketplace"],
+    tags: ["#BuySellOnline", "#OnlineShopping"],
+    nextMeeting: "in 6 hours",
   },
   {
     id: "5",
@@ -108,147 +108,146 @@ export const productsData: Product[] = [
         <div className="rounded-sm w-5 h-5 bg-white flex flex-col items-center justify-center">
           <Image
             src="/brands/disney-icon.svg"
-            alt="wix"
+            alt="disney"
             width={20}
             height={20}
             className="object-cover"
-            content="Wix"
+            content="Disney"
           />
         </div>
       ),
       messageCount: 7,
     },
-    description: "Introduce a cloud-based p.. ",
+    description: "Introduce a B2B solution f... ",
     members: Math.floor(Math.random() * 10) + 1,
 
-    categories: ["Automation", "E-commerce"],
-    tags: ["#DigitalTransformation", "#Popular", "#Popular"],
-    nextMeeting: "in 30 minutes",
+    categories: ["B2B", "B2C"],
+    tags: ["#BusinessPartnerships"],
+    nextMeeting: "No contact",
   },
+
   {
-    id: "5",
+    id: "6",
     brandName: {
-      name: "Disney",
+      name: "Intercom",
       logo: (
         <div className="rounded-sm w-5 h-5 bg-white flex flex-col items-center justify-center">
           <Image
-            src="/brands/disney-icon.svg"
-            alt="wix"
+            src="/brands/intercom-2.svg"
+            alt="intercom"
             width={20}
             height={20}
             className="object-cover"
-            content="Wix"
+            content="Intercom"
           />
         </div>
       ),
-      messageCount: 7,
+      messageCount: 9,
     },
-    description: "Introduce a cloud-based p.. ",
+    description: "Implement an AI-driven C... ",
     members: Math.floor(Math.random() * 10) + 1,
 
-    categories: ["Automation", "E-commerce"],
-    tags: ["#DigitalTransformation", "#Popular", "#Popular"],
-    nextMeeting: "in 30 minutes",
+    categories: ["Technology", "SAAS"],
+    tags: ["#SmartFinance", "#SaasProducts"],
+    nextMeeting: "in 1 hour",
   },
   {
-    id: "5",
+    id: "7",
     brandName: {
-      name: "Disney",
+      name: "Google",
       logo: (
         <div className="rounded-sm w-5 h-5 bg-white flex flex-col items-center justify-center">
           <Image
-            src="/brands/disney-icon.svg"
-            alt="wix"
+            src="brands\google-color-icon.svg"
+            alt="google"
             width={20}
             height={20}
             className="object-cover"
-            content="Wix"
+            content="Google"
           />
         </div>
       ),
-      messageCount: 7,
+      messageCount: 5,
     },
-    description: "Introduce a cloud-based p.. ",
+    description: "Offer a comprehensive cy... ",
     members: Math.floor(Math.random() * 10) + 1,
 
-    categories: ["Automation", "E-commerce"],
-    tags: ["#DigitalTransformation", "#Popular", "#Popular"],
+    categories: ["Finance", "Automation"],
+    tags: ["#SmartFinance"],
     nextMeeting: "in 30 minutes",
   },
   {
-    id: "5",
+    id: "8",
     brandName: {
-      name: "Disney",
+      name: "Evernote",
       logo: (
         <div className="rounded-sm w-5 h-5 bg-white flex flex-col items-center justify-center">
           <Image
-            src="/brands/disney-icon.svg"
-            alt="wix"
+            src="brands\evernote-icon.svg"
+            alt="evernote"
             width={20}
             height={20}
             className="object-cover"
-            content="Wix"
+            content="Evernote"
           />
         </div>
       ),
-      messageCount: 7,
     },
-    description: "Introduce a cloud-based p.. ",
+    description: "This could include smart li... ",
     members: Math.floor(Math.random() * 10) + 1,
 
-    categories: ["Automation", "E-commerce"],
-    tags: ["#DigitalTransformation", "#Popular", "#Popular"],
-    nextMeeting: "in 30 minutes",
+    categories: ["Transportation"],
+    tags: ["#LogisticsTech", "#UX"],
+    nextMeeting: "Next month",
   },
   {
-    id: "5",
+    id: "9",
     brandName: {
-      name: "Disney",
+      name: "Microsoft",
       logo: (
         <div className="rounded-sm w-5 h-5 bg-white flex flex-col items-center justify-center">
           <Image
-            src="/brands/disney-icon.svg"
-            alt="wix"
+            src="brands\microsoft-icon.svg"
+            alt="microsoft"
             width={20}
             height={20}
             className="object-cover"
-            content="Wix"
+            content="Microsoft"
           />
         </div>
       ),
-      messageCount: 7,
+      messageCount: 14,
     },
-    description: "Introduce a cloud-based p.. ",
+    description: "Launch an advisory servic... ",
     members: Math.floor(Math.random() * 10) + 1,
 
-    categories: ["Automation", "E-commerce"],
-    tags: ["#DigitalTransformation", "#Popular", "#Popular"],
-    nextMeeting: "in 30 minutes",
+    categories: ["Publishing", "B2C"],
+    tags: ["#B2CMarketing", "#RetailIT"],
+    nextMeeting: "No contact",
   },
   {
-    id: "5",
+    id: "10",
     brandName: {
-      name: "Disney",
+      name: "Invision",
       logo: (
         <div className="rounded-sm w-5 h-5 bg-white flex flex-col items-center justify-center">
           <Image
-            src="/brands/disney-icon.svg"
-            alt="wix"
+            src="brands\invision-icon.svg"
+            alt="invision"
             width={20}
             height={20}
             className="object-cover"
-            content="Wix"
+            content="Microsoft"
           />
         </div>
       ),
-      messageCount: 7,
     },
-    description: "Introduce a cloud-based p.. ",
+    description: "The tool would analyze tre... ",
     members: Math.floor(Math.random() * 10) + 1,
 
-    categories: ["Automation", "E-commerce"],
-    tags: ["#DigitalTransformation", "#Popular", "#Popular"],
-    nextMeeting: "in 30 minutes",
+    categories: ["Web Services"],
+    tags: ["#APIIntegration"],
+    nextMeeting: "Next month",
   },
 
   {

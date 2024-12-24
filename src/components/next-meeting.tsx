@@ -15,7 +15,7 @@ export type Meeting = (typeof meetingTypes)[number];
 const meetingColours: {
   [key in Meeting]: string;
 } = {
-  "in 30 minutes": "#223545",
+  "in 30 minutes": "#223322",
   Tomorrow: "#223545",
   "in 6 hours": "#223322",
   "No contact": "#492922",

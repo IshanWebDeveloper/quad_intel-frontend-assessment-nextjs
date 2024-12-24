@@ -1,16 +1,26 @@
 const categoryColours: {
-  [key: string]: string;
+  [key: string]: { bg: string; text: string };
 } = {
-  Automation: "#83698b",
-  "E-commerce": "#3d2f22",
-  B2B: "#3a2c22",
-  SAAS: "#222f22",
-  Marketplace: "#222f22",
-  B2C: "#222f22",
-  Technology: "#313740",
-  Finance: "#3a2c22",
-  Publishing: "#402c31",
-  "Web Services": "#286e7c",
+  Automation: { bg: "#3e2849", text: "#ad8ada" },
+  "E-commerce": { bg: "#3d2f22", text: "#b38b6e" },
+  Mobile: { bg: "#3d2f22", text: "#b38b6e" },
+  B2B: {
+    bg: "#3b2b22",
+    text: "#b38b6e",
+  },
+  SAAS: { bg: "#222f22", text: "#469071" },
+  Marketplace: { bg: "#222f22", text: "#469071" },
+  B2C: { bg: "#222f22", text: "#b38b6e" },
+  Technology: { bg: "#27304a", text: "#7da2d4" },
+  Finance: {
+    bg: "#3d2b22",
+    text: "#bcaa60",
+  },
+  Publishing: {
+    bg: "#5d3b53",
+    text: "#dd9bdc",
+  },
+  "Web Services": { bg: "#223845", text: "#4997a5" },
 };
 
 interface CategoryItemProps {
@@ -18,11 +28,11 @@ interface CategoryItemProps {
 }
 
 const CategoryItem = ({ category }: CategoryItemProps) => {
-  const colour = categoryColours[category];
+  const color = categoryColours[category];
   return (
     <div
-      style={{ backgroundColor: colour }}
-      className={`rounded-sm w-fit h-fit  px-1 border border-1 text-nowrap  text-white`}
+      style={{ backgroundColor: color?.bg, color: color?.text }}
+      className={`rounded-sm w-fit h-fit  p-1 border border-1 text-nowrap font-semibold text-xs  `}
     >
       {category}
     </div>

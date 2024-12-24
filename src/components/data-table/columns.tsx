@@ -12,6 +12,45 @@ import { Badge } from "../ui/badge";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const categories = [
+  "Automation",
+  "E-commerce",
+  "B2B",
+  "Marketplace",
+  "B2C",
+  "Technology",
+  "Mobile",
+  "SAAS",
+  "Finance",
+  "Transportation",
+  "Publishing",
+  "Web Services",
+] as const;
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const tags = [
+  "#DigitalTransformation",
+  "#Popular",
+  "#OnlineShopping",
+  "#TechInnovation",
+  "#CloudComputing",
+  "#BuySellOnline",
+  "#BusinessPartnerships",
+  "#SmartFinance",
+  "#LogisticsTech",
+  "#B2CMarketing",
+  "#SaasProducts",
+  "#UX",
+  "#RetailIT",
+  "#APIIntegration",
+] as const;
+
+export type Category = (typeof categories)[number];
+
+export type Tag = (typeof tags)[number];
+
 export type Product = {
   id?: string;
   brandName?: {
@@ -22,8 +61,8 @@ export type Product = {
   };
   description?: string;
   members?: number;
-  categories?: string[];
-  tags?: string[];
+  categories?: Category[];
+  tags?: Tag[];
   nextMeeting?: Meeting;
   plus?: string;
   isCountVisible?: boolean;
