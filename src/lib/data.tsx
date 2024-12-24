@@ -137,5 +137,9 @@ export const productsData: Product[] = [
     tags: ["#DigitalTransformation", "#Popular", "#Popular"],
     nextMeeting: "in 30 minutes",
   },
-  // ...
+
+  {
+    id: "5",
+    isCountVisible: true,
+  },
 ];

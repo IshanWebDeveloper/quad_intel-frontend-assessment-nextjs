@@ -11,18 +11,20 @@ import NextMeeting, { Meeting } from "./next-meeting";
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type Product = {
-  id: string;
-  brandName: {
-    name: string;
-    logo: React.ReactNode;
+  id?: string;
+  brandName?: {
+    name?: string;
+    logo?: React.ReactNode;
     messageCount?: number;
+    isCountVisible?: boolean;
   };
-  description: string;
-  members: React.ReactNode;
-  categories: string[];
-  tags: string[];
-  nextMeeting: Meeting;
+  description?: string;
+  members?: React.ReactNode;
+  categories?: string[];
+  tags?: string[];
+  nextMeeting?: Meeting;
   plus?: string;
+  isCountVisible?: boolean;
 };
 
 export const producerFilmColumns: ColumnDef<Product>[] = [
@@ -41,15 +43,23 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
         />
       </div>
     ),
-    cell: ({ row }) => (
-      <div className=" flex flex-row items-center justify-center">
-        <Checkbox
-          checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!value)}
-          aria-label="Select row"
-        />
-      </div>
-    ),
+    cell: ({ row: { index, getIsSelected, toggleSelected }, table }) => {
+      // render a differnt cell at last row
+      if (index === table.getRowCount() - 1) {
+        return (
+          <div className=" flex flex-row items-center justify-center"></div>
+        );
+      }
+      return (
+        <div className=" flex flex-row items-center justify-center">
+          <Checkbox
+            checked={getIsSelected()}
+            onCheckedChange={(value) => toggleSelected(!!value)}
+            aria-label="Select row"
+          />
+        </div>
+      );
+    },
     enableSorting: false,
     enableHiding: false,
   },
@@ -67,21 +77,31 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
         </div>
       );
     },
-    cell: ({ row: { original } }) => (
-      <div className="flex flex-row items-center justify-between ">
-        <div className="flex flex-row items-center gap-2">
-          {original.brandName.logo}
-          <div className="font-semibold">{original.brandName.name}</div>
-        </div>
-
-        {original.brandName.messageCount && (
-          <div className="flex items-center gap-1">
-            <MessagesSquare className="w-3 h-3" />
-            <div className="text-xs">{original.brandName.messageCount}</div>
+    cell: ({ row: { original, index }, table }) => {
+      if (index === table.getRowCount() - 1) {
+        return (
+          <div className="flex flex-row items-center justify-end gap-2">
+            <span className="font-semibold">{table.getRowCount() - 1}</span>
+            <p>Count</p>
           </div>
-        )}
-      </div>
-    ),
+        );
+      }
+      return (
+        <div className="flex flex-row items-center justify-between ">
+          <div className="flex flex-row items-center gap-2">
+            {original?.brandName?.logo}
+            <div className="font-semibold">{original?.brandName?.name}</div>
+          </div>
+
+          {original?.brandName?.messageCount && (
+            <div className="flex items-center gap-1">
+              <MessagesSquare className="w-3 h-3" />
+              <div className="text-xs">{original.brandName.messageCount}</div>
+            </div>
+          )}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "description",
@@ -97,7 +117,7 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
     header: "Categories",
     cell: ({ row: { original } }) => (
       <div className="flex w-full flex-wrap gap-2  ">
-        {original.categories.map((category, index) => (
+        {original?.categories?.map((category, index) => (
           <CategoryItem key={index} category={category} />
         ))}
       </div>
@@ -111,7 +131,7 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
     size: 100, //starting column size
     cell: ({ row: { original } }) => (
       <div className="flex w-[200px] flex-row gap-1 overflow-x-hidden  ">
-        {original.tags.map((tag, index) => (
+        {original?.tags?.map((tag, index) => (
           <div
             key={index}
             className="rounded-sm px-1 border border-1 bg-gray-500  text-gray-800 font-semibold"
@@ -125,11 +145,14 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
   {
     accessorKey: "nextMeeting",
     header: "Next Meeting",
-    cell: ({ row: { original } }) => (
-      <div className="flex w-full flex-wrap gap-2  ">
-        <NextMeeting nextMeeting={original.nextMeeting} />
-      </div>
-    ),
+    cell: ({ row: { original } }) => {
+      if (original?.nextMeeting)
+        return (
+          <div className="flex w-full flex-wrap gap-2  ">
+            <NextMeeting nextMeeting={original?.nextMeeting} />
+          </div>
+        );
+    },
   },
   {
     accessorKey: "plus",

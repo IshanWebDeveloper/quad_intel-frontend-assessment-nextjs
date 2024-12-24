@@ -67,6 +67,13 @@ export function DataTable<TData, TValue>({
   });
 
   const setSelectedRowCount = useStore((state) => state.setRowCount);
+  const selectedRowCount = useStore((state) => state.selectedRowCount);
+
+  useEffect(() => {
+    if (selectedRowCount < 1) {
+      table.setRowSelection({});
+    }
+  }, [selectedRowCount, table]);
 
   useEffect(() => {
     if (rowSelection) {
@@ -108,7 +115,9 @@ export function DataTable<TData, TValue>({
                 {row.getVisibleCells().map((cell) => {
                   return (
                     <TableCell
-                      className="dark:text-white border border-x-2 "
+                      className={`dark:text-white border border-x-2 ${
+                        row.index == table.getRowCount() - 1 ? "border-x-0" : ""
+                      }`}
                       key={cell.id}
                     >
                       {flexRender(

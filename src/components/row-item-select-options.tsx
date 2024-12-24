@@ -6,6 +6,9 @@ import { X } from "lucide-react";
 import useStore from "@/store";
 const RowItemSelectOption = () => {
   const selectedRowCount = useStore((state) => state.selectedRowCount);
+  if (selectedRowCount === 0) {
+    return null;
+  }
   return (
     <div className=" flex flex-col w-fit px-2 h-fit mt-auto border rounded-lg  self-center  items-center justify-center py-4 bg-opacity-90 mb-2 ">
       <div className="rounded-lg  flex flex-row">
@@ -22,7 +25,11 @@ const RowItemSelectOption = () => {
             <Trash /> Delete
           </Button>
           <ProductsMoreDropDown />
-          <Button variant="outline" size="default">
+          <Button
+            variant="outline"
+            size="default"
+            onClick={() => useStore.setState({ selectedRowCount: 0 })}
+          >
             <X />
           </Button>
         </div>
