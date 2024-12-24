@@ -49,11 +49,11 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
       // render a differnt cell at last row
       if (index === table.getRowCount() - 1) {
         return (
-          <div className=" flex flex-row items-center justify-center "></div>
+          <div className=" flex flex-row items-center justify-center  "></div>
         );
       }
       return (
-        <div className=" flex flex-row items-center justify-center">
+        <div className=" flex flex-row items-center justify-center border">
           <Checkbox
             checked={getIsSelected()}
             onCheckedChange={(value) => toggleSelected(!!value)}

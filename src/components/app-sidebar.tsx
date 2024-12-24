@@ -1,5 +1,13 @@
 import * as React from "react";
-import { ChevronDown, Folder, PenTool, Plus, SquarePlus } from "lucide-react";
+import {
+  ChevronDown,
+  CircleHelp,
+  Folder,
+  PenTool,
+  Plus,
+  SquarePlus,
+  UserPlus,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -25,6 +33,8 @@ import {
 import { TbSpeakerphone } from "react-icons/tb";
 import { MdOutlineCode } from "react-icons/md";
 import { Separator } from "./ui/separator";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
 // This is sample data.
 const data = {
   navMain: [
@@ -106,9 +116,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar
       {...props}
-      className="light:bg-[color:var(--geist-background) mt-2"
+      className="w-[265px] my-2 mx-2 "
       style={{
-        height: "100%",
+        height: "98%",
         borderRadius: "10px",
         border: "1px solid rgba(255, 255, 255, 0.1)",
       }}
@@ -121,7 +131,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           marginBottom: "0.5rem",
         }}
       >
-        <SidebarMenu className="flex-row items-center justify-between bg ">
+        <SidebarMenu className="flex-row items-center justify-between bg scrollbar-hide ">
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
@@ -262,6 +272,46 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </SidebarMenuItem>
               </Collapsible>
             ))}
+          </SidebarMenu>
+        </SidebarGroup>
+        <SidebarGroup className="flex mt-auto ">
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild>
+                <a href="#" className="font-medium">
+                  <UserPlus />
+                  Invite teammates
+                </a>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild>
+                <a href="#" className="font-medium flex flex-row items-center">
+                  <CircleHelp />
+                  Help and first steps
+                  <Badge
+                    variant="outline"
+                    className="bg-gray-100 dark:bg-gray-200 font-semibold text-gray-600  px-1 py-0 h-fit ml-auto  line-height-0"
+                  >
+                    0/6
+                  </Badge>
+                </a>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <div className="font-medium flex flex-row items-center border p-2 rounded-lg">
+                <p className=" rounded-sm w-4 h-4 bg-black dark:bg-white text-sm text-white dark:text-black text-center flex items-center justify-center">
+                  7
+                </p>
+                <span className="ml-2 text-sm">days left on trial</span>
+                <Button
+                  variant="default"
+                  className="ml-auto h-6 text-xs font-bold  px-2 line-height-0"
+                >
+                  Add billing
+                </Button>
+              </div>
+            </SidebarMenuItem>
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
