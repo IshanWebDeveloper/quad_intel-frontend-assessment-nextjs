@@ -300,7 +300,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarMenuItem>
             <SidebarMenuItem>
               <div className="font-medium flex flex-row items-center border p-2 rounded-lg">
-                <p className=" rounded-sm w-4 h-4 bg-black dark:bg-white text-sm text-white dark:text-black text-center flex items-center justify-center">
+                <p className=" rounded-sm w-4 h-4 bg-white  dark:bg-white text-sm text-black dark:text-black text-center flex items-center justify-center">
                   7
                 </p>
                 <span className="ml-2 text-sm">days left on trial</span>
