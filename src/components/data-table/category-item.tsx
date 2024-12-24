@@ -22,7 +22,7 @@ const CategoryItem = ({ category }: CategoryItemProps) => {
   return (
     <div
       style={{ backgroundColor: colour }}
-      className={`rounded-sm w-fit  px-1 border border-1  text-white`}
+      className={`rounded-sm w-fit h-fit  px-1 border border-1 text-nowrap  text-white`}
     >
       {category}
     </div>

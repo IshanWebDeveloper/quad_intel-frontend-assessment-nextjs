@@ -6,7 +6,8 @@ import React from "react";
 import { MessagesSquare, Plus } from "lucide-react";
 import { Button } from "../ui/button";
 import CategoryItem from "./category-item";
-import NextMeeting, { Meeting } from "./next-meeting";
+import NextMeeting, { Meeting } from "../next-meeting";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -19,7 +20,7 @@ export type Product = {
     isCountVisible?: boolean;
   };
   description?: string;
-  members?: React.ReactNode;
+  members?: number;
   categories?: string[];
   tags?: string[];
   nextMeeting?: Meeting;
@@ -47,7 +48,7 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
       // render a differnt cell at last row
       if (index === table.getRowCount() - 1) {
         return (
-          <div className=" flex flex-row items-center justify-center"></div>
+          <div className=" flex flex-row items-center justify-center "></div>
         );
       }
       return (
@@ -106,49 +107,109 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
   {
     accessorKey: "description",
     header: "Description",
+    cell: ({ row: { original, index }, table }) => {
+      if (index === table.getRowCount() - 1) {
+        return (
+          <div className="flex flex-row items-center  justify-end gap-2">
+            <Button variant="ghost" size="default">
+              <Plus /> Add Description
+            </Button>
+          </div>
+        );
+      }
+      return <div>{original.description}</div>;
+    },
   },
   {
     accessorKey: "members",
     header: "Members",
-    cell: ({ row: { original } }) => original.members,
+    cell: ({ row: { original, index }, table }) => {
+      if (index === table.getRowCount() - 1) {
+        return (
+          <div className="flex flex-row items-center  justify-end gap-2">
+            <Button variant="ghost" size="default">
+              <Plus /> Add Calculation
+            </Button>
+          </div>
+        );
+      }
+      return (
+        <div className="flex items-center -space-x-2 w-fit h-fit">
+          {Array.from({ length: original.members! }).map((_, i) => (
+            <Avatar key={i} style={{ width: "25px", height: "25px" }}>
+              <AvatarImage
+                src={`https://avatar.iran.liara.run/public/girl`}
+                className="w-full h-full object-cover"
+              />
+              <AvatarFallback>JD</AvatarFallback>
+            </Avatar>
+          ))}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "categories",
     header: "Categories",
-    cell: ({ row: { original } }) => (
-      <div className="flex w-full flex-wrap gap-2  ">
-        {original?.categories?.map((category, index) => (
-          <CategoryItem key={index} category={category} />
-        ))}
-      </div>
-    ),
+    enableResizing: false,
+    size: 250,
+    cell: ({ row: { original, index }, table }) => {
+      if (index === table.getRowCount() - 1) {
+        return (
+          <div className="flex flex-row items-center  justify-end gap-2">
+            <Button variant="ghost" size="default">
+              <Plus /> Add Calculation
+            </Button>
+          </div>
+        );
+      }
+      return (
+        <div className="flex w-full  gap-2  ">
+          {original?.categories?.map((category, index) => (
+            <CategoryItem key={index} category={category} />
+          ))}
+        </div>
+      );
+    },
   },
 
   {
     accessorKey: "tags",
     header: "Tags",
-    enableResizing: false, //disable resizing for just this column
-    size: 100, //starting column size
-    cell: ({ row: { original } }) => (
-      <div className="flex w-[200px] flex-row gap-1 overflow-x-hidden  ">
-        {original?.tags?.map((tag, index) => (
-          <div
-            key={index}
-            className="rounded-sm px-1 border border-1 bg-gray-500  text-gray-800 font-semibold"
-          >
-            {tag}
+    enableResizing: false,
+    size: 200, //starting column size
+    cell: ({ row: { original, index }, table }) => {
+      if (index === table.getRowCount() - 1) {
+        return (
+          <div className="flex flex-row items-center  justify-end gap-2">
+            <Button variant="ghost" size="default">
+              <Plus /> Add Calculation
+            </Button>
           </div>
-        ))}
-      </div>
-    ),
+        );
+      }
+      return (
+        <div className="flex w-[200px] flex-row gap-1 overflow-x-hidden  ">
+          {original?.tags?.map((tag, index) => (
+            <div
+              key={index}
+              className="rounded-sm px-1 border border-1 bg-gray-500  text-gray-800 font-semibold"
+            >
+              {tag}
+            </div>
+          ))}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "nextMeeting",
     header: "Next Meeting",
+    enableResizing: false,
     cell: ({ row: { original } }) => {
       if (original?.nextMeeting)
         return (
-          <div className="flex w-full flex-wrap gap-2  ">
+          <div className="flex w-fit flex-wrap gap-2 items-center justify-center  ">
             <NextMeeting nextMeeting={original?.nextMeeting} />
           </div>
         );
@@ -156,9 +217,11 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
   },
   {
     accessorKey: "plus",
-    maxSize: 25,
+    enableResizing: false,
+    size: 100,
+    maxSize: 100,
     header: () => (
-      <div className="flex flex-row">
+      <div className="flex flex-row w-[50px] items-center justify-between ">
         <Button variant="ghost" size="icon">
           <Plus />
         </Button>

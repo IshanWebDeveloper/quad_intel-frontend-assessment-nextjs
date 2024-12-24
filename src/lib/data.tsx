@@ -1,5 +1,4 @@
 import { Product } from "@/components/data-table/columns";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 
 export const productsData: Product[] = [
@@ -22,16 +21,7 @@ export const productsData: Product[] = [
       messageCount: 2,
     },
     description: "Develop a personalized fit...",
-    members: (
-      <div className="flex items-center -space-x-2 ">
-        {Array.from({ length: 3 }).map((_, i) => (
-          <Avatar key={i}>
-            <AvatarImage src={`https://avatar.iran.liara.run/public/girl`} />
-            <AvatarFallback>JD</AvatarFallback>
-          </Avatar>
-        ))}
-      </div>
-    ),
+    members: Math.floor(Math.random() * 10) + 1,
 
     categories: ["Automation", "E-commerce"],
     tags: ["#DigitalTransformation", "#Popular", "#Popular"],
@@ -55,16 +45,7 @@ export const productsData: Product[] = [
       ),
     },
     description: "Introduce a cloud-based p.. ",
-    members: (
-      <div className="flex items-center -space-x-2 ">
-        {Array.from({ length: 3 }).map((_, i) => (
-          <Avatar key={i}>
-            <AvatarImage src={`https://avatar.iran.liara.run/public/girl`} />
-            <AvatarFallback>JD</AvatarFallback>
-          </Avatar>
-        ))}
-      </div>
-    ),
+    members: Math.floor(Math.random() * 10) + 1,
 
     categories: ["Automation", "E-commerce"],
     tags: ["#DigitalTransformation", "#Popular", "#Popular"],
@@ -88,16 +69,7 @@ export const productsData: Product[] = [
       ),
     },
     description: "Introduce a cloud-based p.. ",
-    members: (
-      <div className="flex items-center -space-x-2 ">
-        {Array.from({ length: 3 }).map((_, i) => (
-          <Avatar key={i}>
-            <AvatarImage src={`https://avatar.iran.liara.run/public/girl`} />
-            <AvatarFallback>JD</AvatarFallback>
-          </Avatar>
-        ))}
-      </div>
-    ),
+    members: Math.floor(Math.random() * 10) + 1,
 
     categories: ["Automation", "E-commerce"],
     tags: ["#DigitalTransformation", "#Popular", "#Popular"],
@@ -122,16 +94,7 @@ export const productsData: Product[] = [
       messageCount: 7,
     },
     description: "Introduce a cloud-based p.. ",
-    members: (
-      <div className="flex items-center -space-x-2 ">
-        {Array.from({ length: 3 }).map((_, i) => (
-          <Avatar key={i}>
-            <AvatarImage src={`https://avatar.iran.liara.run/public/girl`} />
-            <AvatarFallback>JD</AvatarFallback>
-          </Avatar>
-        ))}
-      </div>
-    ),
+    members: Math.floor(Math.random() * 10) + 1,
 
     categories: ["Automation", "E-commerce"],
     tags: ["#DigitalTransformation", "#Popular", "#Popular"],
@@ -140,6 +103,7 @@ export const productsData: Product[] = [
 
   {
     id: "5",
+
     isCountVisible: true,
   },
 ];

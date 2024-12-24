@@ -116,7 +116,9 @@ export function DataTable<TData, TValue>({
                   return (
                     <TableCell
                       className={`dark:text-white border border-x-2 ${
-                        row.index == table.getRowCount() - 1 ? "border-x-0" : ""
+                        row.index == table.getRowCount() - 1
+                          ? "border border-x-0"
+                          : ""
                       }`}
                       key={cell.id}
                     >
