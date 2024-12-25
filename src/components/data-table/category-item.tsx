@@ -14,7 +14,14 @@ const categoryColours: {
     bg: "#fff3cb",
     text: "#6b6123",
   },
-  Technology: { bg: "#f1faff", text: "#354c6b" },
+  Technology: {
+    bg: "#fff3cb",
+    text: "#6b6123",
+  },
+  Transportation: {
+    bg: "#fff3cb",
+    text: "#6b6123",
+  },
   Finance: { bg: "#e1feea", text: "#263c30" },
   Publishing: {
     bg: "#faedf9",

@@ -154,7 +154,7 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
     cell: ({ row: { original, index }, table }) => {
       if (index === table.getRowCount() - 1) {
         return (
-          <div className="flex flex-row items-center  justify-end gap-2">
+          <div className="flex flex-row items-center   justify-end gap-2">
             <Button variant="ghost" size="default">
               <Plus /> Add Description
             </Button>
@@ -162,7 +162,9 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
         );
       }
       return (
-        <p className=" dark:text-white text-black">{original.description}</p>
+        <p className=" dark:text-white flex-nowrap text-nowrap text-black">
+          {original.description}
+        </p>
       );
     },
   },
