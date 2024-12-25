@@ -108,6 +108,12 @@ export const producerFilmColumns: ColumnDef<Product>[] = [
     accessorKey: "brandName",
     enableResizing: false,
     size: 200,
+    filterFn: (row, id, filterValue) => {
+      const value = row.original?.brandName?.name;
+      return (
+        value?.toLowerCase()?.includes(filterValue?.toLowerCase()) || false
+      );
+    },
     header: () => {
       return (
         <div className="flex flex-row justify-between items-center ">

@@ -250,9 +250,5 @@ export const productsData: Product[] = [
     nextMeeting: "Next month",
   },
 
-  {
-    id: "10",
-
-    isCountVisible: true,
-  },
+  {},
 ];

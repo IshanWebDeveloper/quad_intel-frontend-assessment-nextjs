@@ -47,7 +47,6 @@ export function DataTable<TData, TValue>({
   const table = useReactTable({
     data,
     columns,
-
     getCoreRowModel: getCoreRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
@@ -69,6 +68,13 @@ export function DataTable<TData, TValue>({
   const setSelectedRowCount = useStore((state) => state.setRowCount);
   const selectedRowCount = useStore((state) => state.selectedRowCount);
 
+  const searchTerm = useStore((state) => state.searchTerms);
+
+  useEffect(() => {
+    console.log("searchTerm", searchTerm);
+    table.getColumn("brandName")?.setFilterValue(searchTerm);
+  }, [searchTerm, table]);
+
   useEffect(() => {
     if (selectedRowCount < 1) {
       table.setRowSelection({});
@@ -82,7 +88,7 @@ export function DataTable<TData, TValue>({
   }, [rowSelection, setSelectedRowCount]);
 
   return (
-    <div className="rounded-md ">
+    <div className="rounded-md w-full h-fit">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
